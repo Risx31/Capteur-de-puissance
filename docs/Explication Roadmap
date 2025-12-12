@@ -1,128 +1,172 @@
-1. Vision générale
+Roadmap de Développement
+Capteur Connecté de Mesure de Puissance et d’Environnement
+Version 2026–2027
 
-L’objectif est de faire progresser le capteur du niveau TRL 4 (prototype fonctionnel) au niveau TRL 6/7 (pré-série) grâce à cinq étapes réparties sur l’année 2026. Chaque étape comporte :
-- un objectif technique
-- les tâches effectuées
-- le livrable associé
-- un coût estimatif
+Ce document détaille la roadmap R&D qui permettra de faire évoluer le prototype actuel vers une version stable et pré-industrielle.
+Il complète le fichier « Roadmap capteur puissance.pdf » et en propose une analyse technique approfondie.
 
-la valeur ajoutée pour le client
+1. Objectif général
+
+L’objectif est de faire passer le capteur du niveau TRL 4 (prototype fonctionnel) au niveau TRL 6/7 (pré-série) en suivant cinq grandes étapes réparties sur l’année 2026.
+Chaque étape présente :
+
+un objectif technique,
+
+les tâches prévues,
+
+le livrable associé,
+
+un coût estimatif,
+
+la valeur ajoutée pour le client.
 
 2. Détails des étapes
-  
-1. Janvier – Février 2026
+2.1. Janvier – Février 2026
 Optimisation des mesures électriques
 
-Objectif : Améliorer la précision et la stabilité des mesures de puissance.
+Objectif : améliorer la précision et la stabilité des mesures.
+Contexte : le prototype actuel atteint environ ±5 %. Une optimisation matérielle et logicielle permet de réduire cette marge.
 
-Contexte : Le prototype actuel atteint environ ±5 % de précision. Une optimisation de la synchronisation tension/courant, du filtrage numérique et de la calibration permet d’abaisser cette marge d’erreur.
+Actions prévues
 
-Actions prévues :
+Recalage temporel entre tension et courant
 
-Mise en place d’un recalage temporel entre tension et courant
-
-Ajout d’un filtrage numérique (fenêtre Hanning, moyenne glissante)
+Filtrage numérique (fenêtre Hanning, moyenne glissante)
 
 Calibration sur charges résistives, inductives et capacitives
 
-Révision du firmware pour un module de calcul énergétique dédié
+Révision du firmware avec module dédié au calcul de puissance
 
-Livrable : Firmware v1.2, précision améliorée à environ ±3 %.
-Coût estimé : 600 €.
-Valeur ajoutée : Mesures plus fiables, détection d’anomalies plus pertinente, meilleure conformité au cahier des charges.
+Livrable
 
-2. Mars – Avril 2026
-Intégration d’une connectivité LoRaWAN
+Firmware v1.2 – précision cible : ±3 %
 
-Objectif : Proposer une alternative longue portée au Wi-Fi.
+Coût estimé
 
-Contexte : Certains environnements (bâtiments industriels, zones semi-ouvertes) nécessitent une communication à longue distance avec faible consommation énergétique.
+600 €
 
-Actions prévues :
+Valeur ajoutée
 
-Intégration d’un module LoRa SX1276
+Précision accrue, meilleure détection des anomalies, conformité renforcée au cahier des charges.
 
-Coexistence Wi-Fi / LoRaWAN avec bascule automatique
+2.2. Mars – Avril 2026
+Intégration de la connectivité LoRaWAN
+
+Objectif : proposer une communication longue portée adaptée aux environnements industriels.
+
+Actions prévues
+
+Intégration du module LoRa SX1276
+
+Bascule automatique Wi-Fi / LoRaWAN
 
 Tests de portée en intérieur et extérieur
 
-Compression et adaptation du format des données pour le réseau LoRa
+Adaptation du format des données (payload compact)
 
-Livrable : Firmware v2.0 avec transmission hybride Wi-Fi et LoRaWAN.
-Coût estimé : 990 €.
-Valeur ajoutée : Couverture réseau élargie, meilleure fiabilité en zone isolée, intégration possible dans un réseau IoT déjà existant.
+Livrable
 
-3. Mai – Juin 2026
+Firmware v2.0 – transmission hybride Wi-Fi + LoRaWAN
+
+Coût estimé
+
+990 €
+
+Valeur ajoutée
+
+Adapté aux sites isolés, réseau longue distance, faible consommation.
+
+2.3. Mai – Juin 2026
 Compatibilité InfluxDB 3.0 et API Cloud
 
-Objectif : Permettre une exploitation longue durée et centralisée des données énergétiques.
+Objectif : permettre l’analyse longue durée et le stockage structuré des mesures.
 
-Contexte : Les gestionnaires de bâtiments ont besoin d’un historique exploitable, d’un suivi dans le temps et de la possibilité de déclencher des notifications en cas de dérive.
+Actions prévues
 
-Actions prévues :
+Refonte du format JSON pour InfluxDB 3.0
 
-Refonte du format des données pour compatibilité InfluxDB 3.0
+API REST + MQTT sécurisée
 
-Mise en place d’un endpoint API REST + MQTT sécurisé
+Mise à jour du tableau de bord
 
-Mise à jour du tableau de bord pour l’historique longue durée
+Scripts d’intégration Node-RED → InfluxDB
 
-Intégration dans Node-RED via scripts dédiés
+Livrable
 
-Livrable : Dashboard v3.1 avec historique et alertes.
-Coût estimé : 791 €.
-Valeur ajoutée : Analyse énergétique complète, détection de dérives, exploitation des données facilitée.
+Dashboard v3.1 – historique complet + alertes cloud
 
-4. Juillet – Septembre 2026
-Conception d’un boîtier 3D pré-industriel
+Coût estimé
 
-Objectif : Passer du prototype nu à un dispositif physiquement exploitable.
+791 €
 
-Contexte : Le capteur doit être fiable, sécurisé, compact et facilement installable. Un boîtier sur mesure est indispensable pour un déploiement professionnel.
+Valeur ajoutée
 
-Actions prévues :
+Suivi énergétique réel, analyses temporelles, intégration simple aux outils de supervision.
 
-Création d’un boîtier CAO sur Fusion 360
+2.4. Juillet – Septembre 2026
+Conception du boîtier 3D
 
-Prototypes successifs (FDM puis SLA)
+Objectif : transformer un prototype nu en un dispositif utilisable et sécurisé.
 
-Fixations murales ou rail DIN
+Actions prévues
 
-Étude ventilation et dissipation thermique
+Conception CAO (Fusion 360)
 
-Livrable : Boîtier v1.0 prêt pour une petite série.
-Coût estimé : 495 €.
-Valeur ajoutée : Amélioration de la sécurité, de l’esthétique et de la facilité d’installation.
+Prototypes successifs FDM puis SLA
 
-5. Octobre – Décembre 2026
-Version pré-série TRL 6/7
+Ajout d’un système de fixation murale / rail DIN
 
-Objectif : Stabiliser le produit et préparer une production de 20 unités.
+Étude thermique et ventilation
 
-Actions prévues :
+Livrable
 
-Réécriture du firmware avec modules séparés et tests unitaires
+Boîtier v1.0 – prêt pour une petite série
 
-Création d’un PCB dédié
+Coût estimé
 
-Vérifications électriques, thermiques et mécaniques
+495 €
 
-Dossier technique pour une future production
+Valeur ajoutée
 
-Fabrication de 5 capteurs de test
+Sécurité améliorée, présentation professionnelle, installation facilitée.
 
-Livrable : Capteur v3.0 prêt pour un lot pilote.
-Coût estimé : 1 240 €.
-Valeur ajoutée : Produit proche du niveau industriel, maintenance facilitée, coûts de production optimisés.
+2.5. Octobre – Décembre 2026
+Pré-série TRL 6/7
+
+Objectif : stabiliser l’ensemble et préparer une production de 20 unités.
+
+Actions prévues
+
+Réécriture modulaire du firmware avec tests unitaires
+
+Conception d’un PCB dédié
+
+Vérifications thermiques et électriques
+
+Rédaction du dossier technique de production
+
+Fabrication de cinq unités de test
+
+Livrable
+
+Capteur v3.0 – version pré-série
+
+Coût estimé
+
+1 240 €
+
+Valeur ajoutée
+
+Produit proche du niveau industriel, maintenance facilitée, production reproductible.
 
 3. Synthèse budgétaire
 Période	Étape	Coût
 Jan–Fév 2026	Optimisation des mesures	600 €
-Mar–Avr 2026	LoRaWAN	990 €
-Mai–Jun 2026	InfluxDB 3.0	791 €
-Juil–Sep 2026	Boîtier 3D	495 €
-Oct–Déc 2026	Pré-série TRL 6/7	1 240 €
-Total R&D	—	4 116 €
+Mar–Avr 2026	Connectivité LoRaWAN	990 €
+Mai–Jun 2026	InfluxDB 3.0 et API Cloud	791 €
+Juil–Sep 2026	Boîtier 3D pré-industriel	495 €
+Oct–Déc 2026	Version pré-série TRL 6/7	1 240 €
+Total		4 116 €
 4. Conclusion
 
-Cette roadmap présente une évolution progressive et maîtrisée du capteur. Elle met en évidence les étapes nécessaires pour passer d’un prototype fonctionnel à un produit plus robuste, complet et exploitable dans un contexte professionnel. Elle offre au client une vision claire des investissements, des délais et des bénéfices associés à chaque phase du développement.
+Cette roadmap propose une évolution structurée et réaliste du capteur, permettant de passer d’un prototype fonctionnel à une solution presque industrielle. Elle offre une vision claire des coûts, du calendrier et des bénéfices associés à chaque étape, en garantissant une montée en maturité technique cohérente avec les besoins du client.
