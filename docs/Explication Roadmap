@@ -1,0 +1,128 @@
+1. Vision générale
+
+L’objectif est de faire progresser le capteur du niveau TRL 4 (prototype fonctionnel) au niveau TRL 6/7 (pré-série) grâce à cinq étapes réparties sur l’année 2026. Chaque étape comporte :
+- un objectif technique
+- les tâches effectuées
+- le livrable associé
+- un coût estimatif
+
+la valeur ajoutée pour le client
+
+2. Détails des étapes
+  
+1. Janvier – Février 2026
+Optimisation des mesures électriques
+
+Objectif : Améliorer la précision et la stabilité des mesures de puissance.
+
+Contexte : Le prototype actuel atteint environ ±5 % de précision. Une optimisation de la synchronisation tension/courant, du filtrage numérique et de la calibration permet d’abaisser cette marge d’erreur.
+
+Actions prévues :
+
+Mise en place d’un recalage temporel entre tension et courant
+
+Ajout d’un filtrage numérique (fenêtre Hanning, moyenne glissante)
+
+Calibration sur charges résistives, inductives et capacitives
+
+Révision du firmware pour un module de calcul énergétique dédié
+
+Livrable : Firmware v1.2, précision améliorée à environ ±3 %.
+Coût estimé : 600 €.
+Valeur ajoutée : Mesures plus fiables, détection d’anomalies plus pertinente, meilleure conformité au cahier des charges.
+
+2. Mars – Avril 2026
+Intégration d’une connectivité LoRaWAN
+
+Objectif : Proposer une alternative longue portée au Wi-Fi.
+
+Contexte : Certains environnements (bâtiments industriels, zones semi-ouvertes) nécessitent une communication à longue distance avec faible consommation énergétique.
+
+Actions prévues :
+
+Intégration d’un module LoRa SX1276
+
+Coexistence Wi-Fi / LoRaWAN avec bascule automatique
+
+Tests de portée en intérieur et extérieur
+
+Compression et adaptation du format des données pour le réseau LoRa
+
+Livrable : Firmware v2.0 avec transmission hybride Wi-Fi et LoRaWAN.
+Coût estimé : 990 €.
+Valeur ajoutée : Couverture réseau élargie, meilleure fiabilité en zone isolée, intégration possible dans un réseau IoT déjà existant.
+
+3. Mai – Juin 2026
+Compatibilité InfluxDB 3.0 et API Cloud
+
+Objectif : Permettre une exploitation longue durée et centralisée des données énergétiques.
+
+Contexte : Les gestionnaires de bâtiments ont besoin d’un historique exploitable, d’un suivi dans le temps et de la possibilité de déclencher des notifications en cas de dérive.
+
+Actions prévues :
+
+Refonte du format des données pour compatibilité InfluxDB 3.0
+
+Mise en place d’un endpoint API REST + MQTT sécurisé
+
+Mise à jour du tableau de bord pour l’historique longue durée
+
+Intégration dans Node-RED via scripts dédiés
+
+Livrable : Dashboard v3.1 avec historique et alertes.
+Coût estimé : 791 €.
+Valeur ajoutée : Analyse énergétique complète, détection de dérives, exploitation des données facilitée.
+
+4. Juillet – Septembre 2026
+Conception d’un boîtier 3D pré-industriel
+
+Objectif : Passer du prototype nu à un dispositif physiquement exploitable.
+
+Contexte : Le capteur doit être fiable, sécurisé, compact et facilement installable. Un boîtier sur mesure est indispensable pour un déploiement professionnel.
+
+Actions prévues :
+
+Création d’un boîtier CAO sur Fusion 360
+
+Prototypes successifs (FDM puis SLA)
+
+Fixations murales ou rail DIN
+
+Étude ventilation et dissipation thermique
+
+Livrable : Boîtier v1.0 prêt pour une petite série.
+Coût estimé : 495 €.
+Valeur ajoutée : Amélioration de la sécurité, de l’esthétique et de la facilité d’installation.
+
+5. Octobre – Décembre 2026
+Version pré-série TRL 6/7
+
+Objectif : Stabiliser le produit et préparer une production de 20 unités.
+
+Actions prévues :
+
+Réécriture du firmware avec modules séparés et tests unitaires
+
+Création d’un PCB dédié
+
+Vérifications électriques, thermiques et mécaniques
+
+Dossier technique pour une future production
+
+Fabrication de 5 capteurs de test
+
+Livrable : Capteur v3.0 prêt pour un lot pilote.
+Coût estimé : 1 240 €.
+Valeur ajoutée : Produit proche du niveau industriel, maintenance facilitée, coûts de production optimisés.
+
+3. Synthèse budgétaire
+Période	Étape	Coût
+Jan–Fév 2026	Optimisation des mesures	600 €
+Mar–Avr 2026	LoRaWAN	990 €
+Mai–Jun 2026	InfluxDB 3.0	791 €
+Juil–Sep 2026	Boîtier 3D	495 €
+Oct–Déc 2026	Pré-série TRL 6/7	1 240 €
+Total R&D	—	4 116 €
+4. Conclusion
+
+Cette roadmap présente une évolution progressive et maîtrisée du capteur. Elle met en évidence les étapes nécessaires pour passer d’un prototype fonctionnel à un produit plus robuste, complet et exploitable dans un contexte professionnel. Elle offre au client une vision claire des investissements, des délais et des bénéfices associés à chaque phase du développement.
