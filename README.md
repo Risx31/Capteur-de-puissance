@@ -18,7 +18,7 @@ L'objectif est de fournir une solution économique (< 80 €) et open-source pou
 * **Connectivité** : Connexion Wi-Fi (supporte WPA2-Enterprise / Eduroam) et transmission des données via MQTT.
 * **Indicateurs** : Logo de démarrage et interface utilisateur sur l'écran OLED.
 
-## 🛠 Matériel Requis
+## Matériel Requis
 
 La liste complète des pièces et les coûts sont détaillés dans le dossier `hardware`.
 
