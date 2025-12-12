@@ -1,4 +1,4 @@
-# ⚡ Capteur de Puissance Connecté (Projet Puissance 5)
+# Capteur de Puissance Connecté (Projet Puissance 5)
 
 Ce projet propose un **capteur IoT de mesure de puissance électrique** (active, réactive, apparente) conçu par une équipe d'étudiants du **BUT Mesures Physiques** d'Aix-Marseille Université.
 
@@ -6,7 +6,7 @@ L'objectif est de fournir une solution économique (< 80 €) et open-source pou
 
 ![Schéma de montage](hardware/Schéma%20montage.jpeg)
 
-## 📋 Fonctionnalités
+## Fonctionnalités
 
 * **Mesures en temps réel** :
     * Tension RMS ($V_{rms}$)
@@ -31,7 +31,7 @@ La liste complète des pièces et les coûts sont détaillés dans le dossier `h
 | **Conditionnement** | Module "Analog AC Current Sensor" (pour le SCT013) | ~5.00 € |
 | **Divers** | Câbles, connecteurs | ~6.00 € |
 
-## 🔌 Câblage
+## Câblage
 
 Le microcontrôleur ESP32 est connecté aux capteurs selon les broches définies dans le firmware (`src/main.cpp`) :
 
@@ -41,7 +41,7 @@ Le microcontrôleur ESP32 est connecté aux capteurs selon les broches définies
 
 > **Note** : Un schéma du conditionneur de signal pour la pince ampèremétrique est disponible dans `hardware/Schéma conditionneur.png`.
 
-## 💻 Installation et Configuration (Firmware)
+## Installation et Configuration (Firmware)
 
 Le firmware est développé sous **PlatformIO** (VS Code).
 
