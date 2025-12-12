@@ -24,7 +24,7 @@ Faire passer le capteur du stade prototype (TRL 4) à une pré-série industriel
 - Révision du firmware (module de calcul énergétique dédié).
 
 **Livrable** : Firmware v1.2 — précision cible : ~±3 %.  
-**Coût estimé** : 600 €  
+**Coût estimé** : 1160 €  
 **Valeur ajoutée** : mesures plus fiables, meilleure détection d’anomalies, conformité renforcée.
 
 ---
@@ -39,7 +39,7 @@ Faire passer le capteur du stade prototype (TRL 4) à une pré-série industriel
 - Compression et adaptation du payload.
 
 **Livrable** : Firmware v2.0 — Wi-Fi + LoRaWAN.  
-**Coût estimé** : 990 €  
+**Coût estimé** : 1880 €  
 **Valeur ajoutée** : couverture réseau étendue, meilleure résilience en milieu industriel.
 
 ---
@@ -54,7 +54,7 @@ Faire passer le capteur du stade prototype (TRL 4) à une pré-série industriel
 - Scripts d’intégration Node-RED → InfluxDB.
 
 **Livrable** : Dashboard v3.1 — historique longue durée + alertes.  
-**Coût estimé** : 791 €  
+**Coût estimé** : 1561 €  
 **Valeur ajoutée** : exploitation métier des données, détection de dérives, intégration BMS.
 
 ---
@@ -69,7 +69,7 @@ Faire passer le capteur du stade prototype (TRL 4) à une pré-série industriel
 - Étude thermique et ventilation passive.
 
 **Livrable** : Boîtier v1.0 — prêt pour petite série.  
-**Coût estimé** : 495 €  
+**Coût estimé** : 1395 €  
 **Valeur ajoutée** : sécurité, esthétique, facilité d’installation.
 
 ---
