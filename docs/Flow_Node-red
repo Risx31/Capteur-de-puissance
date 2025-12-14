@@ -1,0 +1,277 @@
+[
+    {
+        "id": "f1a2b3c4d5e6f7a1",
+        "type": "tab",
+        "label": "Capteur Puissance",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "mqtt_in_vrms",
+        "type": "mqtt in",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "Réception capteur puissance",
+        "topic": "capteur/puissance",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_ecowatt",
+        "nl": false,
+        "rap": false,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "json_parse",
+                "debug_raw"
+            ]
+        ]
+    },
+    {
+        "id": "json_parse",
+        "type": "json",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "fn_split"
+            ]
+        ]
+    },
+    {
+        "id": "debug_raw",
+        "type": "debug",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "Debug brut",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fn_split",
+        "type": "function",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "Split mesures",
+        "func": "let d = msg.payload || {};\n\n// On gère les deux cas : Vrms / V_rms et Irms / I_rms\nlet outVrms = { payload: d.Vrms ?? d.V_rms, topic: \"Vrms\" };\nlet outIrms = { payload: d.Irms ?? d.I_rms, topic: \"Irms\" };\nlet outS    = { payload: d.S,               topic: \"S\" };\nlet outPA   = { payload: d.P_A,             topic: \"P_A\" };\nlet outPhi  = { payload: d.Phi,             topic: \"Phi\" };\n\nreturn [outVrms, outIrms, outS, outPA, outPhi];\n",
+        "outputs": 5,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "g_vrms"
+            ],
+            [
+                "g_irms"
+            ],
+            [
+                "g_s"
+            ],
+            [
+                "g_pa"
+            ],
+            [
+                "g_phi"
+            ]
+        ]
+    },
+    {
+        "id": "g_vrms",
+        "type": "ui_gauge",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "V_rms",
+        "group": "grp_mesures",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "V_rms",
+        "label": "V",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 260,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 230,
+        "seg2": 250,
+        "x": 960,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "g_irms",
+        "type": "ui_gauge",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "I_rms",
+        "group": "grp_mesures",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "I_rms",
+        "label": "A",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 20,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 10,
+        "seg2": 15,
+        "x": 960,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "g_s",
+        "type": "ui_gauge",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "S",
+        "group": "grp_mesures",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "S (apparente)",
+        "label": "VA",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 4000,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 2000,
+        "seg2": 3500,
+        "x": 970,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "g_pa",
+        "type": "ui_gauge",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "P_active",
+        "group": "grp_mesures",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "P_A (active)",
+        "label": "W",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 4000,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 2000,
+        "seg2": 3500,
+        "x": 980,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "g_phi",
+        "type": "ui_gauge",
+        "z": "f1a2b3c4d5e6f7a1",
+        "name": "Phi",
+        "group": "grp_mesures",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Phi",
+        "label": "°",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": 90,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": 30,
+        "seg2": 60,
+        "x": 960,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "mqtt_broker_ecowatt",
+        "type": "mqtt-broker",
+        "name": "Broker capteur",
+        "broker": "147.94.10.149",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "grp_mesures",
+        "type": "ui_group",
+        "name": "Mesures AC",
+        "tab": "tab_puissance",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "tab_puissance",
+        "type": "ui_tab",
+        "name": "Capteur Puissance",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "84163b7ca2293a31",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
