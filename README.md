@@ -11,6 +11,25 @@ L'objectif est de fournir une solution économique (< 80 €) et open-source pou
 
 ![Schéma de montage](hardware/Schéma%20montage.jpeg)
 
+## Organisation du Dépôt
+
+Le projet est structuré en trois répertoires principaux :
+
+* **`/firmware`** : Contient tout le code source pour l'ESP32 (environnement PlatformIO).
+    * `src/main.cpp` : Programme principal (acquisition capteurs, calculs P/U/I, affichage OLED, client MQTT).
+    * `platformio.ini` : Fichier de configuration du projet (dépendances bibliothèques, type de carte).
+    * `lib/` & `include/` : Dossiers pour les bibliothèques et fichiers d'en-tête personnalisés.
+
+* **`/hardware`** : Dossier technique matériel.
+    * Schémas électriques (`Schéma montage.jpeg`, `Schéma conditionneur.png`) pour reproduire le circuit.
+    * Liste des composants et budget (`Lise pièce et prix.xlsx`).
+
+* **`/docs`** : Documentation détaillée du projet.
+    * **Rapports** : Rapport complet du projet et roadmap de développement (`Roadmap capteur puissance.pdf`, `Explication_Roadmap.md`).
+    * **Node-red** : Fichiers de configuration pour l'interface de supervision (`Flow_Node-red.json`).
+    * **Imprimante_3D** : Documents relatifs à la fabrication du boîtier et amortissement de l'imprimante.
+    * **Métrologie** : Fichiers de relevés et calculs d'incertitudes (`Fichier de métrologie.xlsx`).
+
 ## Fonctionnalités
 
 * **Mesures en temps réel** :
