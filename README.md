@@ -1,6 +1,11 @@
 # Capteur de Puissance Connecté (Projet Puissance 5)
 
 Ce projet propose un **capteur IoT de mesure de puissance électrique** (active, réactive, apparente) conçu par une équipe d'étudiants du **BUT Mesures Physiques** d'Aix-Marseille Université.
+-Tom Russo
+-Bruno Gaubert
+-Léonard Deloi
+-Eliot Vendenelsken--Robert
+-Titouan Gardy--Lognon
 
 L'objectif est de fournir une solution économique (< 80 €) et open-source pour le suivi énergétique dans les bâtiments intelligents, capable de transmettre les données via **Wi-Fi** et **MQTT** vers une interface de supervision (ex: Node-RED, InfluxDB).
 
